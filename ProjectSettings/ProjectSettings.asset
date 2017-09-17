@@ -464,7 +464,7 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
-    UNet: 0
+    UNet: 1
   cloudProjectId: 62e2e74a-4cc7-4959-821f-d68e4073ddb3
   projectName: 2DPlatformer
   organizationId: edmondmw
