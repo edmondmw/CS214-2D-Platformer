@@ -13,8 +13,7 @@ public class WallJump : MonoBehaviour {
     private Rigidbody2D rb2d;
     private SimplePlatformController spc;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
         spc = GetComponent<SimplePlatformController>();
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

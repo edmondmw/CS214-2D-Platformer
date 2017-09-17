@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 156206583}
   - component: {fileID: 156206582}
   - component: {fileID: 156206581}
+  - component: {fileID: 156206585}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -174,6 +175,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156206585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156206580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9777aff64bf53e24393f6e15c33eb2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingLayer: 466f726567726f756e64
+  rend: {fileID: 0}
 --- !u!1 &185569309
 GameObject:
   m_ObjectHideFlags: 0
