@@ -1112,7 +1112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 10
   hasTop: 0
-  maxWalls: 0
+  maxWalls: 4
+  grass: {fileID: 1715239216610708, guid: 8946bd7fe0ab189478945ec94085c68f, type: 2}
 --- !u!1 &1430637719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,4 +1633,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 10
   hasTop: 0
-  maxWalls: 0
+  maxWalls: 4
+  grass: {fileID: 1715239216610708, guid: 8946bd7fe0ab189478945ec94085c68f, type: 2}
