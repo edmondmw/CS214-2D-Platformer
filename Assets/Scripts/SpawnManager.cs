@@ -26,7 +26,5 @@ public class SpawnManager : MonoBehaviour {
 			Instantiate (platform, randomPosition, Quaternion.identity);
 			originPosition = randomPosition;
 		}
-
-
 	}
 }
