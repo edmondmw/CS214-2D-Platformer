@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlatforms: 20
   platform: {fileID: 1357733338193512, guid: 3b7e325a635cdad44a76c8bb95aafeb6, type: 2}
-  horizontalMin: 6.5
+  horizontalMin: 10.5
   horizontalMax: 14
   verticalMin: -6
   verticalMax: 6
@@ -520,7 +520,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4941155925377100, guid: 3b7e325a635cdad44a76c8bb95aafeb6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4941155925377100, guid: 3b7e325a635cdad44a76c8bb95aafeb6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -934,10 +934,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
-  jump: 0
+  shouldJump: 0
+  grounded: 0
   moveForce: 365
   maxSpeed: 5
-  jumpForce: 1000
+  verticalJumpForce: 1000
   groundCheck: {fileID: 1207155905}
 --- !u!95 &1737456537
 Animator:

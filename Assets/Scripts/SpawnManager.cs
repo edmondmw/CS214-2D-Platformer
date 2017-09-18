@@ -6,8 +6,9 @@ public class SpawnManager : MonoBehaviour {
 
 	public int maxPlatforms = 20;
 	public GameObject platform;
+    public GameObject door;
 	//based on how far the player can jump
-	public float horizontalMin = 6.5f;
+	public float horizontalMin = 10.5f;
 	public float horizontalMax = 14f;
 	public float verticalMin = -6f;
 	public float verticalMax = 6f;
@@ -26,5 +27,8 @@ public class SpawnManager : MonoBehaviour {
 			Instantiate (platform, randomPosition, Quaternion.identity);
 			originPosition = randomPosition;
 		}
+
+        Vector2 doorPosition = originPosition + new Vector2(3, 2);
+        Instantiate(door, doorPosition, Quaternion.identity);
 	}
 }

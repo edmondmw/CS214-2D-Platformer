@@ -35,7 +35,7 @@ public class WallJump : MonoBehaviour {
         if (shouldJump)
         {
             anim.SetTrigger("Jump");
-            rb2d.velocity= new Vector2(0f, rb2d.velocity.y);
+            rb2d.velocity= new Vector2(0f, 0.5f * rb2d.velocity.y);
             if (spc.facingRight)
             {
                 rb2d.AddForce(new Vector2(-horizontalJumpForce, spc.verticalJumpForce));
