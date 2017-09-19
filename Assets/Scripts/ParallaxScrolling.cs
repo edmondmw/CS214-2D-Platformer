@@ -10,13 +10,14 @@ public class ParallaxScrolling : MonoBehaviour {
     private Transform cam;
     private int leftIndex;
     private int rightIndex;
-    private float lastCamera;
     private float tileWidth;
+    private float lastCameraX;
 
 	// Use this for initialization
 	void Start () {
         cam = Camera.main.transform;
-
+        lastCameraX = cam.position.x;
+        //Initialize the tiles array to contain the transforms of all of the tiles
         tiles = new Transform[transform.childCount];
         for(int i = 0; i < tiles.Length; i++)
         {
@@ -26,12 +27,16 @@ public class ParallaxScrolling : MonoBehaviour {
         leftIndex = 0;
         rightIndex = tiles.Length - 1;
         tileWidth = transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.x;
-
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        //Difference in x position since the last frame
+        float deltaX = cam.position.x - lastCameraX;
+        transform.position += Vector3.left * (deltaX * parallaxSpeed);
+        lastCameraX = cam.position.x;
+
         float  halfHorizontalCamera = Camera.main.orthographicSize * Screen.width / Screen.height;
         float visibleRightEdge = tiles[rightIndex].transform.position.x + tileWidth/2 - offset;
         float visibleLeftEdge = tiles[leftIndex].transform.position.x - tileWidth / 2 + offset;
