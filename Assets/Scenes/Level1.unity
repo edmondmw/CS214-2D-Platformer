@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlatforms: 20
   platform: {fileID: 1357733338193512, guid: 3b7e325a635cdad44a76c8bb95aafeb6, type: 2}
+  door: {fileID: 1693506036139504, guid: fc17af451d9e43e428208071b8ee3bdf, type: 2}
   horizontalMin: 10.5
   horizontalMax: 14
   verticalMin: -6
