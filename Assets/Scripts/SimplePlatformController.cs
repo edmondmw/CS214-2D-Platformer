@@ -38,6 +38,11 @@ public class SimplePlatformController : MonoBehaviour {
         {
 			shouldJump = true;
 		}
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            anim.SetTrigger("Shoot");
+        }
 	}
 
 	void FixedUpdate()
