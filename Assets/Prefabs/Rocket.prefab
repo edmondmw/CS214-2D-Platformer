@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4654741753991818}
   - component: {fileID: 50419788393791344}
   - component: {fileID: 70202368024186564}
+  - component: {fileID: 114139966473172884}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -153,6 +154,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114139966473172884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642002330272730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a84f80f08f1164449587a64e18bb60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 2
 --- !u!212 &212110207245994258
 SpriteRenderer:
   m_ObjectHideFlags: 1
