@@ -6,7 +6,9 @@ public class Shoot : MonoBehaviour {
     public GameObject rocket;
     public Transform hero;
     public float speed;
+    public float fireRate = 0.5f;
 
+    private float nextFire = 0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +16,7 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Fire1"))
+		if(Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
             hero.GetComponent<Animator>().SetTrigger("Shoot");
 
@@ -27,6 +29,8 @@ public class Shoot : MonoBehaviour {
                 GameObject aRocket = Instantiate(rocket, hero.FindChild("Gun").transform.position, Quaternion.Euler(new Vector3(0, 0, 180)));
                 aRocket.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
             }
+
+            nextFire = Time.time + fireRate;
         }
 	}
 }
