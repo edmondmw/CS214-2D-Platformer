@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
-    public float destroyDelay = 0.5f;
-
+    public float destroyDelay = 0.2f;
     private Camera cam;
-    private float offset = 2;
-
+    private float offset = 1;
+    private bool used = false;
 	// Use this for initialization
 	void Start () {
         cam = Camera.main;
@@ -27,10 +26,17 @@ public class Rocket : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !used)
         {
+            used = true;
+            //code to make the enemy fall through ground
+            Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+            Destroy(collision.gameObject.GetComponent<CircleCollider2D>());
+            collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = 15f;
+
+            //destroy rocket and enemy
             Destroy(collision.gameObject, destroyDelay);
-            Destroy(gameObject, destroyDelay);
+            Destroy(gameObject);
         }
     }
 }

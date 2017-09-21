@@ -645,9 +645,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 10
   hasTop: 0
-  maxWalls: 2
-  grass: {fileID: 1715239216610708, guid: 8946bd7fe0ab189478945ec94085c68f, type: 2}
-  walls: {fileID: 1837203209}
+  maxWalls: 0
+  grass: {fileID: 0}
+  walls: {fileID: 0}
 --- !u!114 &548214517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1492,22 @@ GameObject:
   m_PrefabParentObject: {fileID: 1690133720398628, guid: 010721e82138d3c44b710739f0dcd2a8,
     type: 2}
   m_PrefabInternal: {fileID: 2040333419}
+--- !u!114 &1837203211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837203209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a88f706a92e6dd42a41c3e4de628cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 10
+  hasTop: 0
+  maxWalls: 2
+  grass: {fileID: 1715239216610708, guid: 8946bd7fe0ab189478945ec94085c68f, type: 2}
+  walls: {fileID: 1690133720398628, guid: 010721e82138d3c44b710739f0dcd2a8, type: 2}
 --- !u!1001 &2040333419
 Prefab:
   m_ObjectHideFlags: 0

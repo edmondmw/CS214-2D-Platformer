@@ -12,6 +12,7 @@ public class ParallaxScrolling : MonoBehaviour {
     private int rightIndex;
     private float tileWidth;
     private float lastCameraX;
+    private bool isGround = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,11 @@ public class ParallaxScrolling : MonoBehaviour {
         leftIndex = 0;
         rightIndex = tiles.Length - 1;
         tileWidth = transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.x;
+
+        if (CompareTag("ground"))
+        {
+            isGround = true;
+        }
 	}
 	
 	// Update is called once per frame
@@ -56,7 +62,14 @@ public class ParallaxScrolling : MonoBehaviour {
     void ScrollRight ()
     {
         Vector3 rightTilePos = tiles[rightIndex].position;
+        float oldPosX = tiles[leftIndex].position.x;
+        
+        if(isGround)
+        {
+            moveEnemiesWithTile(oldPosX, tiles[leftIndex].position.x, leftIndex);
+        }
         tiles[leftIndex].position = new Vector3(rightTilePos.x + tileWidth, rightTilePos.y, rightTilePos.z);
+
         rightIndex = leftIndex;
         leftIndex++;
         if (leftIndex >= tiles.Length)
@@ -67,10 +80,35 @@ public class ParallaxScrolling : MonoBehaviour {
     void ScrollLeft()
     {
         Vector3 leftTilePos = tiles[leftIndex].position;
+        float oldPosX = tiles[rightIndex].position.x;
+        if (isGround)
+        {
+            moveEnemiesWithTile(oldPosX, tiles[rightIndex].position.x, rightIndex);
+        }
+
         tiles[rightIndex].position = new Vector3(leftTilePos.x - tileWidth, leftTilePos.y, leftTilePos.z);
+        
         leftIndex = rightIndex;
         rightIndex--;
         if (rightIndex < 0)
             rightIndex = tiles.Length - 1;
+    }
+
+    void moveEnemiesWithTile(float oldPosX, float newPosX, int tileIndex)
+    {
+        float moveDistance = oldPosX - newPosX;
+        List<Transform> objectList = tiles[tileIndex].GetComponent<GetObjectsOnGround>().getObjectsOnTile();
+        foreach (Transform obj in objectList)
+        {
+            if (obj == null)
+            {
+                tiles[tileIndex].GetComponent<GetObjectsOnGround>().removeObject(obj);
+            }
+            else
+            {
+                obj.position = new Vector3(obj.position.x - moveDistance, obj.position.y + 5, obj.position.z);
+            }
+        }
+
     }
 }

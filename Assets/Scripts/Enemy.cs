@@ -8,16 +8,27 @@ public class Enemy : MonoBehaviour {
     public Transform heroTransform;
 
     private Rigidbody2D rb2d;
-    private bool facingRight;
+    private bool facingRight = true;
+    private bool onGround = false;
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        Move();
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (onGround)
+        {
+            StartCoroutine("Move");
+        }
+        
+        //crappy but workaround
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,7 +36,13 @@ public class Enemy : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if(collision.gameObject.CompareTag("ground"))
+        {
+            onGround = true;
+        }
     }
+
 
     void Flip()
     {
@@ -35,7 +52,7 @@ public class Enemy : MonoBehaviour {
         transform.localScale = tempScale;
     }
 
-    void Move()
+    IEnumerator Move()
     {
         float direction = Mathf.Sign(transform.position.x - heroTransform.position.x) * -1;
         rb2d.velocity = new Vector2(speed * direction, 0);
@@ -44,6 +61,15 @@ public class Enemy : MonoBehaviour {
         {
             Flip();
         }
+
+
+        if (Mathf.Round(transform.position.x) == Mathf.Round(heroTransform.position.x)) 
+        {
+            //Make the enemy unable to move if you have the same x position
+            //Allows player to jump over them
+            onGround = false;
+            yield return new WaitForSeconds(1f);
+            onGround = true;
+        }
     }
-    
 }
