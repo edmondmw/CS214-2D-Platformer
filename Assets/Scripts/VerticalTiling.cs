@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tiling : MonoBehaviour
+public class VerticalTiling : MonoBehaviour
 {
 
     public int offset = 10; //offset to avoid bugs

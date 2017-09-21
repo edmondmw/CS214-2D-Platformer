@@ -12,11 +12,6 @@ public class PlatformFall : MonoBehaviour {
 	void Awake () {
 		rb2d = GetComponent <Rigidbody2D> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if (other.gameObject.CompareTag ("Player")) {
